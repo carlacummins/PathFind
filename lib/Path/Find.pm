@@ -14,6 +14,7 @@ use lib "/software/pathogen/internal/pathdev/vr-codebase/modules";
 package Path::Find;
 use DBI;
 use VRTrack::VRTrack;
+use Data::Dumper;
 
 use File::Slurp;
 use YAML::XS;
@@ -87,6 +88,8 @@ sub pathogen_databases
         my $root_dir = $self->hierarchy_root_dir($database);
         push @db_list_out, $database  if defined $root_dir;
     }
+
+    print Dumper \@db_list_out;
 
     return @db_list_out;
 }
